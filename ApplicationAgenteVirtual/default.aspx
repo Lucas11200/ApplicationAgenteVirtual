@@ -2,6 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div align="center">
-        <asp:Label runat="server" ID="lblTESTE"> texteeeeeee</asp:Label>
+        <asp:Label runat="server" ID="lblTESTE"></asp:Label>
     </div>
 </asp:Content>
