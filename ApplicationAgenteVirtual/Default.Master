@@ -1,0 +1,162 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default.master.cs" Inherits="ApplicationAgenteVirtual.Default" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>::: System Interact ::: Agente Virtual :::</title>
+</head>
+<body>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/Custom.css">
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/font-awesome.min.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-3.2.1.js"></script>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <script type="text/javascript">
+
+        function menssagem(title, content) {
+            $('#divCampanha').hide();
+            $.alert({ title: title, content: content, });
+        };
+
+        function alertaSucesso(title, content) {
+            $.confirm({
+                title: title,
+                content: content,
+                type: 'green',
+                typeAnimated: true,
+                buttons: {
+                    tryAgain: {
+                        text: 'OK',
+                        btnClass: 'btn-green',
+                        action: function () { }
+                    }
+                }
+            })
+        };
+
+        function alertaAviso(title, content) {
+            $.confirm({
+                title: title,
+                content: content,
+                type: 'orange',
+                typeAnimated: true,
+                buttons: {
+                    tryAgain: {
+                        text: 'OK',
+                        btnClass: 'btn-orange',
+                        action: function () { }
+                    }
+                }
+            })
+        };
+
+        function alertaErro(title, content) {
+            $.confirm({
+                title: title,
+                content: content,
+                type: 'red',
+                typeAnimated: true,
+                buttons: {
+                    tryAgain: {
+                        text: 'OK',
+                        btnClass: 'btn-red',
+                        action: function () { }
+                    }
+                }
+            })
+        };
+
+    </script>
+    <form runat="server" id="form1">
+
+        <div class="wrapper">
+            <nav id="sidebar">
+
+                <div class="sidebar-header">
+                    <img src="images/systeminteractlg.png" id="imgSystem" />
+                </div>
+
+                <div class="sidebar-title" id="divCampanha">
+                    <asp:HiddenField runat="server" ID="hdnIDCampanhaSelecionada" ClientIDMode="Static" />
+                    <asp:Label runat="server" ID="lblCampanhaSelecionada" ClientIDMode="Static" Style="padding: 30px; font-size: 13px; display: block;"></asp:Label>
+                </div>
+
+                <ul class="list-unstyled components">
+
+                    <li runat="server" id="btnCampanha" visible="false">
+                        <a href="campanha.aspx">
+                            <i class="fa fa-bullhorn fa-lg"></i>
+                            Campanha
+                        </a>
+                    </li>
+
+                    <li runat="server" id="btnDefinirPublico" visible="false">
+                        <a href="definirPublico.aspx">
+                            <i class="fa fa-search fa-lg"></i>
+                            Definir Público
+                        </a>
+                    </li>
+
+                    <li runat="server" id="btnAcionamento" visible="false">
+                        <a href="acionamento.aspx">
+                            <i class="fa fa-calendar fa-lg"></i>
+                            Acionamento
+                        </a>
+                    </li>
+
+                    <li runat="server" id="btnHistorico" visible="false">
+                        <a href="historico.aspx">
+                            <i class="fa fa-history fa-lg"></i>
+                            Histórico
+                        </a>
+                    </li>
+
+                    <li runat="server" id="btnUsuarios" visible="false">
+                        <!-- Link with dropdown items -->
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                            <i class="fa fa-user fa-lg"></i>
+                            Usuários
+                        </a>
+
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li runat="server" id="btnGerenciar" visible="false"><a href="usuario.aspx">Gerenciar</a></li>
+                            <li runat="server" id="btnGrupo" visible="false"><a href="grupos.aspx">Grupos</a></li>
+                            <li runat="server" id="btnGrupoTela" visible="false"><a href="grupoTela.aspx" id="btn">Grupos Tela</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav>
+            <!-- Page Content Holder -->
+            <div id="content">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+
+                        <div class="navbar-header">
+                        </div>
+
+                        <h2 class="text-center">Agente Virtual - Gerenciamento </h2>
+                    </div>
+                </nav>
+                <div id="frame" runat="server">
+                    <div id="snackbar"></div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                <div class="line"></div>
+                <div class="row" style="text-align: center">
+                  <asp:Label runat="server" ID="lblrodape"></asp:Label> 
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
