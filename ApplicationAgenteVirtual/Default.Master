@@ -83,9 +83,10 @@
                     <img src="images/systeminteractlg.png" id="imgSystem" />
                 </div>
 
-                <div class="sidebar-title" id="divCampanha">
+                <div class="sidebar-title text-center" id="divCampanha">
                     <asp:HiddenField runat="server" ID="hdnIDCampanhaSelecionada" ClientIDMode="Static" />
-                    <asp:Label runat="server" ID="lblCampanhaSelecionada" ClientIDMode="Static" Style="padding: 30px; font-size: 13px; display: block;"></asp:Label>
+                    <h4><strong>
+                        <asp:Label runat="server" ID="lblCampanhaSelecionada" ClientIDMode="Static"></asp:Label></strong></h4>
                 </div>
 
                 <ul class="list-unstyled components">
@@ -153,7 +154,7 @@
 
                 <div class="line"></div>
                 <div class="row" style="text-align: center">
-                  <asp:Label runat="server" ID="lblrodape"></asp:Label> 
+                    <asp:Label runat="server" ID="lblrodape"></asp:Label>
                 </div>
             </div>
         </div>
